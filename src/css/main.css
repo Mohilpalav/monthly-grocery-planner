@@ -1,0 +1,46 @@
+body {
+    font-family: "Avenir";
+    font-size: 1rem;
+    background-image: url('/course/img/background1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; }
+
+
+header {
+    background: #000000;
+}
+
+.btn-primary {
+    background: #000000;
+    border-color: black;
+    color: #fff !important;
+}
+
+.btn-primary:hover {
+    background: #A9A9A9;
+    border-color: black;
+    color: #fff !important;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.content {
+    padding: 2rem 1.5rem;
+}
+
+.jumbotron {
+    padding: 1.5rem;
+    background: 0;
+}
+
+.jumbotron img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.logo {
+    font-family: 'Pacifico', cursive;
+    color:white;
+    text-align: center;
+  }

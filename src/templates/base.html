@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Monthly Grocery Planner - {% block title %}{% endblock %}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="/course/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <script src="/course/lib/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/course/lib/popper/popper.min.js"></script>
+    <script src="/course/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <nav class="navbar navbar-expand-md navbar-dark">
+                        <a class="navbar-brand" href="/"><img src="/course/img/trolley.png" style="max-height: 40px;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item{% if active == 'Home' %} active{% endif %}">
+                                    <a class="nav-link" href="/">Home</a>
+                                </li>
+                                <li class="nav-item{% if active == 'User' %} active{% endif %}">
+                                    <a class="nav-link" href="/user">Profile</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav mr-auto">
+                            <h1 class="logo">Monthly Grocery Planner</h1>
+                            </ul>
+                            <ul class="navbar-nav">
+                                {% if session['user'] %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hi {{ session['user']['name'] }}!
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/logout">Log Out</a>
+                                    </div>
+                                </li>
+
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">Log In</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+</body>
+
+</html>

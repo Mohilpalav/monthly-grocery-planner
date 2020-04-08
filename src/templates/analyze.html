@@ -1,0 +1,115 @@
+
+{% set active = "User" %}
+
+{% block content %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="/course/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bill.css" rel="stylesheet">
+    <script src="/course/lib/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/course/lib/popper/popper.min.js"></script>
+    <script src="/course/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+    <section class="jumbotron">
+      <div class="text-left">
+              <h1 class="jumbotron-heading">Analyze</h1>
+              <p class="lead text-muted">Add your Bill No. to analyze your recent shopping trip!</p>
+      </div>
+
+      <form method="POST" action="/analyze">
+      <input type="number" min="1" name="receipt">
+      <button class="button" name = "button">Add</button>
+      </form>
+
+     {% if pressed == 1 %}
+     <p class="lead text-muted">Oops! Looks like you missed a few items from your list while shopping.</p>
+    <table class ="table">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            {% for i in range(0,lenm) %}
+            <tr>
+              <th scope="row">
+                <img class = "img" src="data:;base64,{{ missed_images[i] }}" />
+            </th>
+            <td>
+              {{missed_products[i][0]}}
+            </td>
+
+            </tr>
+            {% endfor %}
+            </table>
+            {% endif %}
+
+
+
+             {% if pressed == 1 and lene !=0 %}
+             <p class="lead text-muted">Oops! Looks like you bought an item that wasn't in your monthly plan.</p>
+            <table class ="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                      </tr>
+                    </thead>
+                    {% for i in range(0,lene) %}
+                    <tr>
+                      <th scope="row">
+                        <img class = "img" src="data:;base64,{{ extra_images[i] }}" />
+                    </th>
+                    <td>
+                      {{extra_products[i][0]}}
+                    </td>
+
+                    </tr>
+                    {% endfor %}
+                    </table>
+                    {% endif %}
+
+           {% if lenc!=0 %}
+           <p class="lead text-muted">This is how your shopping trip looks like.</p>
+          <table class ="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Categories</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">No. of items</th>
+                    </tr>
+                  </thead>
+                  {% for i in range(0,lenc) %}
+                  <tr>
+                  <td>
+                    {{categories[i][0]}}
+                  </td>
+                  <td>
+                    {{categories[i][1]}}$
+                  </td>
+                  <td>
+                    {{categories[i][2]}}
+                  </td>
+                  </tr>
+                  {% endfor %}
+                  </table>
+           {% endif %}
+
+
+
+      {% if pressed == 1 and bill_total !=0 %}
+       <h3 class="jumbotron-heading">Total: {{bill_total}}$</h3>
+      {% endif %}
+
+       {% if message != None%}
+           {{ message }}
+       {% endif %}
+      </section>
+
+{% endblock %}

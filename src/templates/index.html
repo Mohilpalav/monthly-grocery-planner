@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% set active = "Home" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<head>
+  <link href="/css/index.css" rel="stylesheet">
+  <link href="/css/footer.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+
+  <img src="/course/img/bw1.jpg" style="width:100%">
+  <div class="text">Organize your shopping trips.</div>
+</div>
+
+<div class="mySlides fade">
+
+  <img src="/course/img/bw2.jpg" style="width:100%">
+  <div class="text">Buy only those items that you need.</div>
+</div>
+
+<div class="mySlides fade">
+
+  <img src="/course/img/bw3.jpeg" style="width:100%">
+  <div class="text">Analyze your monthly expense.</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+<div class="white-box">
+  <h1 align="center">About this website:<h1>
+  <div class="para"> This web application allows users to keep a track of their monthly grocery shopping. It allows the user to create a monthly list of items. The user can also add bills of shopping trips. The system will then analyze which items the user missed during shopping, the monthly expense, which department the user spends his/her money on and other useful information.</div>
+</div>
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 6000);
+}
+</script>
+</body>
+<div class="footer">Developed by Mohil Palav.</div>
+{% endblock %}

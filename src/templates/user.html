@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% set active = "User" %}
+
+{% block title %}
+User
+{% endblock %}
+
+{% block content %}
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="/course/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/user.css" rel="stylesheet">
+
+  <script src="/course/lib/jquery/jquery-3.3.1.min.js"></script>
+  <script src="/course/lib/popper/popper.min.js"></script>
+  <script src="/course/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+  <body>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'products')" id="defaultOpen">Products</button>
+    <button class="tablinks" onclick="openTab(event, 'mylist')">My List</button>
+    <button class="tablinks" onclick="openTab(event, 'addtrip')">Shopping Trip</button>
+    <button class="tablinks" onclick="openTab(event, 'analyze')">Analyze</button>
+  </div>
+
+  <div id="products" class="tabcontent">
+
+    <iframe src="/search"></iframe>
+  </div>
+
+  <div id="mylist" class="tabcontent">
+
+    <iframe src="/list"></iframe>
+  </div>
+
+  <div id="addtrip" class="tabcontent">
+
+    <iframe src="/bill"></iframe>
+  </div>
+
+  <div id="analyze" class="tabcontent">
+
+    <iframe src="/analyze"></iframe>
+  </div>
+  <script>
+  function openTab(evt, Name) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(Name).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  document.getElementById("defaultOpen").click();
+  </script>
+
+  </body>
+
+</html>
+
+{% endblock %}
