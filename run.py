@@ -5,7 +5,16 @@ from db import Database
 from base64 import b64encode
 
 app = Flask(__name__, static_folder='public', static_url_path='')
-app.secret_key = b'lkj98t&%$3rhfSwu3D'
+app.secret_key = 'lkj98t&%$3rhfSwu3D'
+
+
+@app.route('/templates/<path:path>')
+def base_static(path):
+    return send_file(os.path.join(app.root_path, path))
+
+@app.route('/')
+def index():
+    return render_template('/index.html')
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -18,14 +27,6 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/course/<path:path>')
-def base_static(path):
-    return send_file(os.path.join(app.root_path, '..', '..', 'course', path))
 
 @app.route('/create_user', methods=['GET', 'POST'])
 def create_user():
