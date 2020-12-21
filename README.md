@@ -7,6 +7,7 @@ This web application allows users to keep a track of their monthly grocery shopp
 
 Dependencies:
 > pip install flask
+
 > pip install passlib
 
 
