@@ -6,41 +6,44 @@ Log In
 {% endblock %}
 
 {% block content %}
-<link href="/css/login.css" rel="stylesheet">
-<link href="/css/footer.css" rel="stylesheet">
+<head>
+    <link href="/css/login.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+</head>
+
 <div class="white-box">
-<h1>Log In</h1>
-<p>
-    Please log in with your credentials below. If you are a new user, please
-    <a href="/create_user">create an account</a>.
-</p>
+    <h1>Log In</h1>
+    <p>
+        Please log in with your credentials below. If you are a new user, please
+        <a href="/create_user">create an account</a>.
+    </p>
 
-{% if message %}
-<div class="alert alert-danger">
-    {{ message }}
-</div>
-{% endif %}
+    {% if message %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {% endif %}
 
-<form method="POST" class="pt-3">
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Username</label>
-        <div class="col-4">
-            <input class="form-control" type="text" name="username">
+    <form method="POST" class="pt-3">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Username</label>
+            <div class="col-4">
+                <input class="form-control" type="text" name="username">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Password</label>
-        <div class="col-4">
-            <input class="form-control" type="password" name="password">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Password</label>
+            <div class="col-4">
+                <input class="form-control" type="password" name="password">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 </div>
 <div class="footer">Developed by Mohil Palav.</div>
 {% endblock %}

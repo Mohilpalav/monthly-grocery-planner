@@ -5,62 +5,60 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
-    <link href="/css/bill.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <link href="/css/bill.css" rel="stylesheet">
     
 </head>
 
-    <section class="jumbotron">
-      <div class="text-left">
-              <h1 class="jumbotron-heading">Shopping trip</h1>
-              <p class="lead text-muted">Add your Bill No. to view your recent shopping trip!</p>
-      </div>
+<section class="jumbotron">
+  <div class="text-left">
+          <h1 class="jumbotron-heading">Shopping trip</h1>
+          <p class="lead text-muted">Add your Bill No. to view your recent shopping trip!</p>
+  </div>
 
-      <form method="POST" action="/bill">
-      <input type="number" min="1" name="bill">
-      <button class="button" name = "button" >Add</button>
-      </form>
-{% if pressed == 1 %}
-    <table class ="table">
-            <thead>
-              <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">price</th>
-                <th scope="col">Quantity</th>
-              </tr>
-            </thead>
-            {% for i in range(0,len) %}
+  <form method="POST" action="/bill">
+    <input type="number" min="1" name="bill">
+    <button class="button" name = "button" >Add</button>
+  </form>
+  {% if pressed == 1 %}
+  <table class ="table">
+          <thead>
             <tr>
-              <th scope="row">
-                <img class = "img" src="data:;base64,{{ images[i] }}" />
-            </th>
-            <td>
-              {{products[i][0]}}
-            </td>
-            <td>
-              {{products[i][1]}}$
-            </td>
-            <td>
-              {{products[i][3]}}
-            </td>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">price</th>
+              <th scope="col">Quantity</th>
             </tr>
-            {% endfor %}
-            </table>
-{% endif %}
+          </thead>
+          {% for i in range(0,len) %}
+          <tr>
+            <th scope="row">
+              <img class = "img" src="data:;base64,{{ images[i] }}" />
+          </th>
+          <td>
+            {{products[i][0]}}
+          </td>
+          <td>
+            {{products[i][1]}}$
+          </td>
+          <td>
+            {{products[i][3]}}
+          </td>
+          </tr>
+          {% endfor %}
+    </table>
+  {% endif %}
        {% if message != None%}
            {{ message }}
        {% endif %}
-      </section>
+</section>
 
 {% endblock %}
