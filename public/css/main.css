@@ -1,13 +1,13 @@
 body {
     font-family: "Avenir";
     font-size: 1rem;
-    background-image: url('/course/img/background1.jpg');
+    background-image: url('/images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover; }
 
 
 header {
-    background: #000000;
+    background: #343a40;
 }
 
 .btn-primary {
