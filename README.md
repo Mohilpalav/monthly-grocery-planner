@@ -6,12 +6,15 @@ This web application allows users to keep a track of their monthly grocery shopp
 
 
 ## Dependencies:
-> pip install flask
 
-> pip install passlib
-
+Download the required dependencies using the commands:
+```
+pip install flask
+pip install passlib
+```
 
 ## Execution steps:
+
 1. Clone the repository.
 2. cd into the repository.
 3. Install the above dependencies.
