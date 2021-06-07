@@ -1,4 +1,4 @@
-# monthlygroceryplanner
+# Monthly Grocery Planner
 
 ***This application was developed as a project under the CS-530 (Design of User Interfaces) course at Drexel University.***
 
